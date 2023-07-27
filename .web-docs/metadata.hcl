@@ -2,7 +2,7 @@
 # https://github.com/hashicorp/integration-template#metadata-configuration
 integration {
   name = "HashiCups"
-  description = "TODO"
+  description = "The HashiCups plugin is a reference plugin for learning how to use HashiCorp Packer."
   identifier = "packer/BrandonRomano/hashicups"
   component {
     type = "data-source"

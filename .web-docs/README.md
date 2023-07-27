@@ -1,23 +1,51 @@
-# HashiCups Plugin
-
 The HashiCups plugin is part of the [Packer](https://learn.hashicorp.com/packer) Learn collection.
 The plugin interacts with the [HashiCorp Demo App API](https://github.com/hashicorp-demoapp/product-api-go) called HashiCups.
-The component of this plugin are:
 
-- [Order builder](builders/order.mdx) - The order builder is used to create custom HashiCups order.
+### Installation
 
-- [Toppings provisioner](provisioners/toppings.mdx) - The toppings provisioner is used to add toppings to your order coffee(s).
+To install this plugin, copy and paste this code into your Packer configuration, then run [`packer init`](https://www.packer.io/docs/commands/init).
 
-- [Receipt post-processor](post-processors/receipt.mdx) - The receipt post-processor is used to
+```hcl
+packer {
+  required_plugins {
+    hashicups = {
+      source  = "github.com/hashicorp/hashicups"
+      version = "~> 1"
+    }
+  }
+}
+```
+
+Alternatively, you can use `packer plugins install` to manage installation of this plugin.
+
+```sh
+$ packer plugins install github.com/hashicorp/hashicups
+```
+
+### Components
+
+#### Builders
+
+- [Order builder](/packer/integrations/hashicorp/hashicups/latest/components/builder/order) - The order builder is used to create custom HashiCups order.
+
+#### Provisioners
+
+- [Toppings provisioner](/packer/integrations/hashicorp/hashicups/latest/components/provisioner/toppings) - The toppings provisioner is used to add toppings to your order coffee(s).
+
+#### Post-processors
+
+- [Receipt post-processor](/packer/integrations/hashicorp/hashicups/latest/components/post-processor/receipt) - The receipt post-processor is used to
   print the receipt of your order.
 
-- [Coffees data source](datasources/coffees.mdx) - The coffees data source is used to
+#### Data Sources
+
+- [Coffees data source](/packer/integrations/hashicorp/hashicups/latest/components/data-source/coffees) - The coffees data source is used to
   fetch all the coffees ids existent in the HashiCups menu.
 
-- [Ingredients data source](datasources/ingredients.mdx) - The ingredients data source is used to
+- [Ingredients data source](/packer/integrations/hashicorp/hashicups/latest/components/data-source/ingredients) - The ingredients data source is used to
   fetch the ingredients ids for an existent coffee in the HashiCups menu.
 
-## The HashiCups menu and orders
+### The HashiCups menu and orders
 
 Get the available coffees:
 ```shell
@@ -26,7 +54,7 @@ $ curl -v localhost:19090/coffees | jq
 
 The following api call requires authorization.
 
-First, sing in with previously created account:
+First, sign-in with previously created account:
 ```shell
 $ curl -X POST localhost:19090/signin -d '{"username":"education", "password":"test123"}'
 ```
