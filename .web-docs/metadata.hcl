@@ -3,7 +3,7 @@
 integration {
   name = "HashiCups"
   description = "The HashiCups plugin is a reference plugin for learning how to use HashiCorp Packer."
-  identifier = "packer/BrandonRomano/hashicups"
+  identifier = "packer/hashicorp/hashicups"
   component {
     type = "data-source"
     name = "Coffees"
